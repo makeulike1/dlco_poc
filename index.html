@@ -17,43 +17,5 @@
     <noscript>
       <strong>We're sorry but untitled doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="viewer" style="display:flex; justify-content:center; align-items:center;"></div>
-    <script>
-        const templateStyles = {
-            'naver': 'width: 350px; height: 350px; background-color: green; display:flex; justify-content:center; align-items:center; flex-wrap:wrap;',
-            'kakao': 'width: 400px; height: 300px; background-color: yellow; display:flex; justify-content:center; align-items:center; flex-wrap:wrap;',
-            'default': 'width: 300px; height: 400px; background-color: gray; display:flex; justify-content:center; align-items:center; flex-wrap:wrap;'
-        }
-        const textSources = {
-            'naver': 'this is <b>naver</b> content',
-            'kakao': 'this is <b>kakao</b> content',
-            'default': 'this is <b>default</b> content'
-        }
-        const imageSources = {
-            'naver': 'https://modo-phinf.pstatic.net/20190528_290/15590301946799R5ex_PNG/mosaZjqFW3.png?type=round256_256',
-            'kakao': 'https://c-sf.smule.com/rs-s26/arr/57/fa/e9094e08-4de9-4f79-b842-098d8a2bb4e7.jpg',
-            'default': 'https://lh3.googleusercontent.com/proxy/uxatL2inM0AzP7IvIz_eZjeHlcXtcSzB7FheAwO3DT__oebF1V5jgPhUoHR-isCBXHw8t9MV0X18m0r7_4tyLz-f7300VVWLJdl0'
-        }
-
-        const queryString = window.location.search
-        const params = new URLSearchParams(queryString)
-        const media = params.get('media')
-        console.log(media)
-
-        const template = document.createElement('div')
-        template.style.cssText = templateStyles[media || 'default'] || templateStyles.default
-
-        const textSource = document.createElement('div')
-        textSource.innerHTML = textSources[media || 'default'] || textSources.default
-
-        const imageSource = document.createElement('img')
-        imageSource.src = imageSources[media || 'default'] || imageSources.default
-        
-        template.appendChild(textSource)
-        template.appendChild(imageSource)
-
-        const viewerNode = document.getElementById('viewer')
-        viewerNode.appendChild(template)
-    </script>
   </body>
 </html>
